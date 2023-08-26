@@ -1,3 +1,4 @@
+import prisma from "@/lib/prisma";
 import { Quiz } from "@/components/Quiz";
 
 const quiz = {
@@ -17,12 +18,14 @@ const quiz = {
   ],
 };
 
-export default function Home() {
+export default async function Home() {
+  const quizzes = await prisma.quiz.findMany();
+
   return (
-    <main>
-      <div className="max-w-4xl mx-auto">
-        <Quiz quiz={quiz} />
-      </div>
+    <main className="max-w-4xl mx-auto my-8">
+      {quizzes.map((quizz) => (
+        <div>{quizz.title}</div>
+      ))}
     </main>
   );
 }

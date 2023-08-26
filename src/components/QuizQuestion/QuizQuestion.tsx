@@ -1,12 +1,11 @@
 "use client";
 
 import clsx from "clsx";
-import { Question } from "@/types";
 import { FormEvent, useState } from "react";
+import { type Question } from "@prisma/client";
 
 export interface QuestionProps {
   question: Question;
-  // onAnswer: (chosenAnswer: string) => void;
 }
 
 export function QuizQuestion({ question }: QuestionProps) {
@@ -27,7 +26,7 @@ export function QuizQuestion({ question }: QuestionProps) {
       onSubmit={onSubmit}
       className="my-10 border-solid border-gray-300 border-2 rounded-2xl p-10"
     >
-      <p className="text-4xl text-primary font-semibold">{question.question}</p>
+      <p className="text-4xl text-primary font-semibold">{question.title}</p>
       <div className="mt-4 mb-5">
         {question.options.map((option) => (
           <label key={option} className="label justify-start gap-5">
