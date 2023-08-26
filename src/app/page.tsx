@@ -1,3 +1,28 @@
+import { Quiz, type QuizProps } from "@/components/Quiz";
+
+const quiz = {
+  title: "Sample Quiz",
+  description: "Sample description",
+  questions: [
+    {
+      question: "Sample Question",
+      options: [
+        "Sample answer 1",
+        "Sample answer 2",
+        "Sample answer 3",
+        "Sample answer 4",
+      ],
+      correctOption: "Sample answer 3",
+    },
+  ],
+};
+
 export default function Home() {
-  return <main></main>;
+  return (
+    <main className="text-primary-600">
+      <div className="container mx-auto">
+        <Quiz quiz={quiz} />
+      </div>
+    </main>
+  );
 }
