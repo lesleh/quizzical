@@ -1,3 +1,5 @@
+"use client";
+
 import { Question, Quiz as QuizType } from "@/types";
 import { QuizQuestion } from "../QuizQuestion";
 
@@ -11,7 +13,7 @@ export function Quiz({ quiz: { title, description, questions } }: QuizProps) {
       <h1>{title}</h1>
       <p>{description}</p>
       {questions.map((question) => (
-        <QuizQuestion question={question} />
+        <QuizQuestion key={question.question} question={question} />
       ))}
     </div>
   );

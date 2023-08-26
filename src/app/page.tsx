@@ -19,7 +19,7 @@ const quiz = {
 
 export default function Home() {
   return (
-    <main className="text-primary-600">
+    <main>
       <div className="container mx-auto">
         <Quiz quiz={quiz} />
       </div>

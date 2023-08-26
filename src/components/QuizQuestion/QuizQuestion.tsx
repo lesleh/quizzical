@@ -1,14 +1,21 @@
 "use client";
 
+import clsx from "clsx";
 import { Question } from "@/types";
-import { FormEvent } from "react";
+import { FormEvent, useState } from "react";
 
 export interface QuestionProps {
   question: Question;
   // onAnswer: (chosenAnswer: string) => void;
 }
 
-export function QuizQuestion(props: QuestionProps) {
+export function QuizQuestion({ question }: QuestionProps) {
+  const [selectedOption, setSelectedOption] = useState<string | null>(null);
+
+  function onChange(e: FormEvent<HTMLInputElement>) {
+    setSelectedOption(e.target.value);
+  }
+
   function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     alert("You chose x");
@@ -16,20 +23,26 @@ export function QuizQuestion(props: QuestionProps) {
 
   return (
     <form onSubmit={onSubmit}>
-      <p>Question?</p>
-      <label className="block">
-        <input type="radio" name="answer" /> Option 1
-      </label>
-      <label className="block">
-        <input type="radio" name="answer" /> Option 2
-      </label>
-      <label className="block">
-        <input type="radio" name="answer" /> Option 3
-      </label>
-      <label className="block">
-        <input type="radio" name="answer" /> Option 4
-      </label>
-      <button>Save</button>
+      <p>{question.question}</p>
+      {question.options.map((option) => (
+        <label key={option} className="label justify-start gap-5">
+          <input
+            onChange={onChange}
+            type="radio"
+            className="radio"
+            name="answer"
+            value={option}
+          />
+          <span className="label-text">{option}</span>
+        </label>
+      ))}
+      <button
+        className={clsx("btn btn-primary", {
+          "btn-disabled": !selectedOption,
+        })}
+      >
+        Save
+      </button>
     </form>
   );
 }
