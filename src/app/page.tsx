@@ -1,4 +1,4 @@
-import { Quiz, type QuizProps } from "@/components/Quiz";
+import { Quiz } from "@/components/Quiz";
 
 const quiz = {
   title: "Sample Quiz",

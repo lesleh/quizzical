@@ -1,6 +1,6 @@
 "use client";
 
-import { Question, Quiz as QuizType } from "@/types";
+import { Quiz as QuizType } from "@/types";
 import { QuizQuestion } from "../QuizQuestion";
 
 export interface QuizProps {
