@@ -9,3 +9,22 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+model Quiz {
+  id        Int        @id @default(autoincrement())
+  title     String
+  questions Question[]
+
+  @@map("quizzical_quiz")
+}
+
+model Question {
+  id            Int      @id @default(autoincrement())
+  title         String
+  options       String[]
+  correctOption String
+  quiz          Quiz     @relation(fields: [quizId], references: [id])
+  quizId        Int
+
+  @@map("quizzical_question")
+}
