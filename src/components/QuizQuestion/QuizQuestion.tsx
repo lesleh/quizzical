@@ -9,6 +9,7 @@ export interface QuestionProps {
 }
 
 export function QuizQuestion({ question }: QuestionProps) {
+  const [answer, setAnswer] = useState<string | null>(null);
   const [selectedOption, setSelectedOption] = useState<string | null>(null);
 
   function onChange(e: FormEvent<HTMLInputElement>) {
@@ -18,7 +19,7 @@ export function QuizQuestion({ question }: QuestionProps) {
 
   function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    alert("You chose x");
+    setAnswer(selectedOption);
   }
 
   return (
@@ -41,13 +42,20 @@ export function QuizQuestion({ question }: QuestionProps) {
           </label>
         ))}
       </div>
-      <button
-        className={clsx("btn btn-primary", {
-          "btn-disabled": !selectedOption,
-        })}
-      >
-        Submit
-      </button>
+      <div className="flex gap-5 items-center">
+        <button
+          className={clsx("btn btn-primary", {
+            "btn-disabled": !selectedOption || !!answer,
+          })}
+        >
+          Submit
+        </button>
+        {answer && (
+          <div>
+            {answer === question.correctOption ? "Correct!" : "Incorrect!"}
+          </div>
+        )}
+      </div>
     </form>
   );
 }
