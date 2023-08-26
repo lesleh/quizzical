@@ -2,6 +2,7 @@ import * as path from "node:path";
 import { fileURLToPath } from "node:url";
 import nextEnv from "@next/env";
 import OpenAI from "openai";
+import { writeFile } from "node:fs/promises";
 
 const projectDirectory = path.resolve(fileURLToPath(import.meta.url), "../../");
 nextEnv.loadEnvConfig(projectDirectory);
@@ -17,9 +18,12 @@ const result = await openai.chat.completions.create({
     {
       role: "user",
       content:
-        "Write me a list of 10 multiple choice Jurassic Park quiz questions and answers. Don't make the questions easy.",
+        "Write me a list of 10 multiple choice Back to the Future quiz questions and answers. Don't make the questions easy.",
     },
   ],
 });
 
-console.log(JSON.stringify(result, null, 2));
+await writeFile(
+  "./data/responses/back-to-the-future.json",
+  JSON.stringify(result, null, 2),
+);

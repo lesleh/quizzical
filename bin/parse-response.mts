@@ -3,7 +3,7 @@ import { fileURLToPath } from "url";
 import _ from "lodash";
 import nextEnv from "@next/env";
 import { PrismaClient } from "@prisma/client";
-import response from "../data/responses/jurassic-park.json";
+import response from "../data/responses/back-to-the-future.json";
 
 const projectDirectory = path.resolve(fileURLToPath(import.meta.url), "../../");
 nextEnv.loadEnvConfig(projectDirectory);
@@ -26,20 +26,20 @@ const client = new PrismaClient({
   datasourceUrl: process.env.DATABASE_URL_NON_POOLING,
 });
 
-// const result = await client.quiz.create({
-//   data: {
-//     title: "Jurassic Park",
-//     questions: {
-//       create: questions,
-//     },
-//   },
-// });
+const result = await client.quiz.create({
+  data: {
+    title: "Back to the Future",
+    questions: {
+      create: questions,
+    },
+  },
+});
 
-const result = await client.quiz.findFirst({
+const result2 = await client.quiz.findFirst({
   include: {
     questions: true,
   },
 });
-console.log(result);
+console.log(result2);
 
 await client.$disconnect();
