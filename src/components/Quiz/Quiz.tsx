@@ -9,9 +9,9 @@ export interface QuizProps {
 
 export function Quiz({ quiz: { title, description, questions } }: QuizProps) {
   return (
-    <div>
-      <h1>{title}</h1>
-      <p>{description}</p>
+    <div className="py-10">
+      <h1 className="text-5xl font-bold text-primary mb-6">{title}</h1>
+      <p className="text-2xl text-primary">{description}</p>
       {questions.map((question) => (
         <QuizQuestion key={question.question} question={question} />
       ))}

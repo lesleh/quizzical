@@ -10,13 +10,7 @@ const config: Config = {
   daisyui: {
     themes: ["autumn"],
   },
-  theme: {
-    extend: {
-      colors: {
-        primary: rose,
-      },
-    },
-  },
+  theme: {},
   plugins: [require("daisyui")],
 };
 export default config;

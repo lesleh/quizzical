@@ -20,7 +20,7 @@ const quiz = {
 export default function Home() {
   return (
     <main>
-      <div className="container mx-auto">
+      <div className="max-w-4xl mx-auto">
         <Quiz quiz={quiz} />
       </div>
     </main>
