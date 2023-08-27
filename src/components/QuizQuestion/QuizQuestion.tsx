@@ -24,11 +24,8 @@ export function QuizQuestion({ question, onMoveNext }: QuestionProps) {
   }
 
   return (
-    <form
-      onSubmit={onSubmit}
-      className="my-10 border-solid border-gray-300 border-2 rounded-2xl p-10"
-    >
-      <p className="text-4xl text-primary font-semibold">{question.title}</p>
+    <form onSubmit={onSubmit}>
+      <p className="text-2xl text-primary font-semibold">{question.title}</p>
       <div className="mt-4 mb-5">
         {question.options.map((option) => (
           <label key={option} className="label justify-start gap-5">
@@ -54,7 +51,7 @@ export function QuizQuestion({ question, onMoveNext }: QuestionProps) {
           </label>
         ))}
       </div>
-      <div className="flex gap-5 items-center">
+      <div className="flex gap-5 items-center justify-end">
         {(answer && (
           <button
             type="button"
