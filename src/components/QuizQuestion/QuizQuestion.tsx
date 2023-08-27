@@ -38,7 +38,18 @@ export function QuizQuestion({ question }: QuestionProps) {
               name="answer"
               value={option}
             />
-            <span className="label-text text-lg">{option}</span>
+            <span className="label-text text-lg">
+              {option}
+
+              {answer && option === question.correctOption && (
+                <span className="text-green-600"> ✓</span>
+              )}
+              {answer &&
+                answer === option &&
+                option !== question.correctOption && (
+                  <span className="text-red-600"> ✗</span>
+                )}
+            </span>
           </label>
         ))}
       </div>
