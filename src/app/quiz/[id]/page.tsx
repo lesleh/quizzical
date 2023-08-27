@@ -19,7 +19,7 @@ export default async function QuizPage({
   }
 
   return (
-    <main className="max-w-4xl mx-auto my-8">
+    <main className="max-w-4xl mx-auto my-8 p-4">
       <Quiz quiz={quiz} />
     </main>
   );

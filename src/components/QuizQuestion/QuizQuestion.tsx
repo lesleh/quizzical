@@ -6,9 +6,10 @@ import { type Question } from "@prisma/client";
 
 export interface QuestionProps {
   question: Question;
+  onMoveNext: (correct: boolean) => void;
 }
 
-export function QuizQuestion({ question }: QuestionProps) {
+export function QuizQuestion({ question, onMoveNext }: QuestionProps) {
   const [answer, setAnswer] = useState<string | null>(null);
   const [selectedOption, setSelectedOption] = useState<string | null>(null);
 
@@ -54,13 +55,19 @@ export function QuizQuestion({ question }: QuestionProps) {
         ))}
       </div>
       <div className="flex gap-5 items-center">
-        <button
-          className={clsx("btn btn-primary", {
-            "btn-disabled": !selectedOption || !!answer,
-          })}
-        >
-          Submit
-        </button>
+        {(answer && (
+          <button
+            type="button"
+            onClick={() => onMoveNext(answer === question.correctOption)}
+            className={clsx("btn btn-primary")}
+          >
+            Next
+          </button>
+        )) || (
+          <button type="submit" className={clsx("btn btn-primary")}>
+            Submit
+          </button>
+        )}
         {answer && (
           <div>
             {answer === question.correctOption ? "Correct!" : "Incorrect!"}
