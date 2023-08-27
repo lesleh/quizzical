@@ -1,7 +1,9 @@
 import prisma from "@/lib/prisma";
 import Link from "next/link";
 
-export default async function Home() {
+export const revalidate = 60;
+
+export async function Home() {
   const quizzes = await prisma.quiz.findMany();
 
   return (
