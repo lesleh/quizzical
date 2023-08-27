@@ -4,6 +4,8 @@ import nextEnv from "@next/env";
 import OpenAI from "openai";
 import { writeFile } from "node:fs/promises";
 
+const SUBJECT = "Harry Potter";
+
 const projectDirectory = path.resolve(fileURLToPath(import.meta.url), "../../");
 nextEnv.loadEnvConfig(projectDirectory);
 
@@ -17,13 +19,12 @@ const result = await openai.chat.completions.create({
   messages: [
     {
       role: "user",
-      content:
-        "Write me a list of 10 multiple choice Back to the Future quiz questions and answers. Don't make the questions easy.",
+      content: `Write me a list of 10 multiple choice ${SUBJECT} quiz questions and answers. Don't make the questions easy. Use the following format for each question:\n\n1. In the movie Back to the Future, what is the name of Doc Brown's dog?\n\na) Einstein\nb) Newton\nc) Tesla\nd) Baxter\n\nAnswer: a) Einstein`,
     },
   ],
 });
 
 await writeFile(
-  "./data/responses/back-to-the-future.json",
+  "./data/responses/sample.json",
   JSON.stringify(result, null, 2),
 );

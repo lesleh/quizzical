@@ -3,21 +3,25 @@ import { fileURLToPath } from "url";
 import _ from "lodash";
 import nextEnv from "@next/env";
 import { PrismaClient } from "@prisma/client";
-import response from "../data/responses/back-to-the-future.json";
+import response from "../data/responses/sample.json";
 
 const projectDirectory = path.resolve(fileURLToPath(import.meta.url), "../../");
 nextEnv.loadEnvConfig(projectDirectory);
 
 const content = response.choices[0].message.content;
 
-const questions = _.chunk(content.split("\n\n"), 2).map(
-  ([questionAndOptions, correctAnswer]) => {
-    const [question, ...options] = questionAndOptions.split("\n");
+const questions = _.chunk(content.split("\n\n"), 3).map(
+  ([questionText, optionsText, correctAnswer]) => {
+    const title = questionText.replace(/^\d+\. /, "");
+    const options = optionsText
+      .split("\n")
+      .map((option) => option.replace(/\w+\) /, "").trim());
+    const correctOption = correctAnswer.replace(/^Answer: \w+\) /, "").trim();
 
     return {
-      title: question.replace(/^\d+\. /, ""),
-      options: options.map((option) => option.replace(/\w+\) /, "").trim()),
-      correctOption: correctAnswer.replace(/^Answer: \w+\) /, "").trim(),
+      title,
+      options,
+      correctOption,
     };
   },
 );
@@ -28,18 +32,20 @@ const client = new PrismaClient({
 
 const result = await client.quiz.create({
   data: {
-    title: "Back to the Future",
+    title: "Harry Potter",
     questions: {
       create: questions,
     },
   },
 });
 
-const result2 = await client.quiz.findFirst({
-  include: {
-    questions: true,
-  },
-});
-console.log(result2);
+console.log(result);
+
+// const result2 = await client.quiz.findFirst({
+//   include: {
+//     questions: true,
+//   },
+// });
+// console.log(result2);
 
 await client.$disconnect();

@@ -1,0 +1,21 @@
+{
+  "id": "chatcmpl-7s9iVDFzqeFstqqI3kd4JoZfYaYfh",
+  "object": "chat.completion",
+  "created": 1693141419,
+  "model": "gpt-3.5-turbo-0613",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "1. In Harry Potter and the Prisoner of Azkaban, who is the actual owner of the Marauder's Map?\n\na) Remus Lupin\nb) Sirius Black\nc) James Potter\nd) Peter Pettigrew\n\nAnswer: c) James Potter\n\n2. What is Dumbledore's full name?\n\na) Albus Percival Wulfric Brian Dumbledore\nb) Albus Severus Gerbold Percival Wulfric Dumbledore\nc) Albus Percival Severus Dumbledore\nd) Albus Dumbledore\n\nAnswer: a) Albus Percival Wulfric Brian Dumbledore\n\n3. Which of the following is NOT one of the Unforgivable Curses?\n\na) Imperio\nb) Avada Kedavra\nc) Sectumsempra\nd) Crucio\n\nAnswer: c) Sectumsempra\n\n4. What is the core of Harry Potter's wand?\n\na) Phoenix feather\nb) Dragon heartstring\nc) Unicorn hair\nd) Thestral tail hair\n\nAnswer: a) Phoenix feather\n\n5. Which Hogwarts house was Cedric Diggory in?\n\na) Gryffindor\nb) Slytherin\nc) Hufflepuff\nd) Ravenclaw\n\nAnswer: c) Hufflepuff\n\n6. What is the name of the poltergeist that haunts Hogwarts?\n\na) Nearly Headless Nick\nb) Peeves\nc) Moaning Myrtle\nd) The Bloody Baron\n\nAnswer: b) Peeves\n\n7. What is the first name of Harry Potter's father?\n\na) Michael\nb) Timothy\nc) John\nd) James\n\nAnswer: d) James\n\n8. Which of the following is NOT one of Voldemort's Horcruxes?\n\na) Nagini\nb) The locket of Salazar Slytherin\nc) The cup of Helga Hufflepuff\nd) The Ring of Erised\n\nAnswer: d) The Ring of Erised\n\n9. In Harry Potter and the Goblet of Fire, who is the author of the book \"Fantastic Beasts and Where to Find Them\"?\n\na) Newt Scamander\nb) Rubeus Hagrid\nc) Albus Dumbledore\nd) Gilderoy Lockhart\n\nAnswer: a) Newt Scamander\n\n10. Which of the following creatures can speak Parseltongue?\n\na) Draco Malfoy\nb) Ginny Weasley\nc) Neville Longbottom\nd) Lord Voldemort\n\nAnswer: d) Lord Voldemort"
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 79,
+    "completion_tokens": 528,
+    "total_tokens": 607
+  }
+}
