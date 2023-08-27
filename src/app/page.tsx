@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export const revalidate = 60;
 
-export async function Home() {
+export default async function Home() {
   const quizzes = await prisma.quiz.findMany();
 
   return (
