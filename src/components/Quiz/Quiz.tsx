@@ -27,7 +27,7 @@ export function Quiz({ quiz: { title, questions } }: QuizProps) {
   const progressBarText =
     currentQuestionIndex < questions.length
       ? `Question ${currentQuestionIndex + 1} of ${questions.length}`
-      : `Done! You got ${correctAnswers} out of ${questions.length} right!`;
+      : `Done!`;
 
   return (
     <div>
@@ -45,7 +45,9 @@ export function Quiz({ quiz: { title, questions } }: QuizProps) {
           question={questions[currentQuestionIndex]}
         />
       ) : (
-        <div>Done!</div>
+        <p className="text-center text-5xl">
+          Done! You got {correctAnswers} right out of {questions.length}.
+        </p>
       )}
     </div>
   );
