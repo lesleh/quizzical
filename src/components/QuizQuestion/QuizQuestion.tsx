@@ -51,7 +51,7 @@ export function QuizQuestion({ question, onMoveNext }: QuestionProps) {
           </label>
         ))}
       </div>
-      <div className="flex gap-5 items-center justify-end">
+      <div className="flex flex-row-reverse gap-5 items-center justify-between">
         {(answer && (
           <button
             type="button"
