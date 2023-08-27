@@ -16,8 +16,9 @@ export function Quiz({ quiz: { title, questions } }: QuizProps) {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [correctAnswers, setCorrectAnswers] = useState(0);
 
-  function onMoveNext() {
+  function onMoveNext(correct: boolean) {
     setCurrentQuestionIndex(currentQuestionIndex + 1);
+    if (correct) setCorrectAnswers(correctAnswers + 1);
   }
 
   return (
