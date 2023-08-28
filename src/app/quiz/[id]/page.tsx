@@ -19,7 +19,7 @@ export default async function QuizPage({
   }
 
   return (
-    <main className="min-h-screen max-w-4xl mx-auto p-4 grid grid-rows-[auto,_auto_,1fr] gap-4">
+    <main className="min-h-full max-w-4xl mx-auto p-4 grid grid-rows-[auto,_auto_,1fr] gap-4">
       <Quiz quiz={quiz} />
     </main>
   );
