@@ -7,6 +7,11 @@ import { PrismaClient } from "@prisma/client";
 
 const [subject] = process.argv.slice(2);
 
+if (!subject) {
+  process.stderr.write("Missing subject");
+  process.exit(1);
+}
+
 const projectDirectory = path.resolve(fileURLToPath(import.meta.url), "../../");
 nextEnv.loadEnvConfig(projectDirectory);
 
