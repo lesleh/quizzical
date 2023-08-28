@@ -30,8 +30,8 @@ export function Quiz({ quiz: { title, questions } }: QuizProps) {
       : `Done!`;
 
   return (
-    <div>
-      <h1 className="text-3xl font-bold text-primary mb-4">{title}</h1>
+    <>
+      <h1 className="text-3xl font-bold text-primary">{title}</h1>
       <ProgressBar
         current={progressBarCurrent}
         maximum={progressBarMaximum}
@@ -49,6 +49,6 @@ export function Quiz({ quiz: { title, questions } }: QuizProps) {
           Done! You got {correctAnswers} right out of {questions.length}.
         </p>
       )}
-    </div>
+    </>
   );
 }

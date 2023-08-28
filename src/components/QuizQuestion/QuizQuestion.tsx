@@ -24,7 +24,10 @@ export function QuizQuestion({ question, onMoveNext }: QuestionProps) {
   }
 
   return (
-    <form onSubmit={onSubmit}>
+    <form
+      onSubmit={onSubmit}
+      className="grid max-sm:grid-rows-[auto,_1fr_,auto] sm:place-content-start gap-4"
+    >
       <p className="text-2xl text-primary font-semibold">{question.title}</p>
       <div className="mt-4 mb-5">
         {question.options.map((option) => (

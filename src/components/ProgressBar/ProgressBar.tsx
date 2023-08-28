@@ -6,10 +6,10 @@ export interface ProgressBarProps {
 
 export function ProgressBar({ current, maximum, text }: ProgressBarProps) {
   return (
-    <div className="my-4">
+    <div>
       <progress
         // TODO: Make this skinnable
-        className="progress progress-secondary mb-1"
+        className="progress progress-secondary"
         value={current}
         max={maximum}
       ></progress>
