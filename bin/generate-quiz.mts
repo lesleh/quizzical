@@ -8,7 +8,7 @@ import { PrismaClient } from "@prisma/client";
 const [subject] = process.argv.slice(2);
 
 if (!subject) {
-  process.stderr.write("Missing subject");
+  process.stderr.write("Missing subject\n");
   process.exit(1);
 }
 
